@@ -1,2 +1,77 @@
 https://docs.google.com/presentation/d/1-bOUDd6EeLsSkrQRxVveYqPBYd9SKTl4d2attopwYSE/edit?slide=id.g39b56a9927d_0_56#slide=id.g39b56a9927d_0_56
 
+
+Business Understanding
+Problem Statement:
+ Fraudulent activity within digital payments causes financial losses, reputational risk, and operational strain.
+Goal:
+ Build a reliable, fast, and interpretable model to assess a user’s likelihood of committing fraud — enabling Lydia’s systems and analysts to act quickly and accurately.
+Business Benefits:
+Reduce manual fraud reviews
+Prioritize high-risk users in real time
+Improve overall fraud detection precision and reduce false positives
+Speed up API response time for internal teams
+
+Data and Feautes
+Data Sources: Historical user and transaction data across Lydia’s systems 
+Feature Categories:
+User information: age, account age, KYC status, email, phone details
+User actions: password resets, device changes, alias modifications
+Transactions: volume, amounts, success/failure rates over 24h–90d
+Patterns: time between transactions, use of ATM or betting MCCs
+Beneficiaries: number, foreign IBANs, neo-bank usage
+👉 ~500 engineered features built via SQL in the Feature Library and stored in “feature_event” tables for high performance.
+
+Data Preperation & Model Training
+Approach: Supervised machine learning (classification)
+ Algorithm: XGBoost (Extreme Gradient Boosting)
+ Training Process:
+6 months of historical data
+Balanced dataset: ~10% fraudsters, 90% normal users
+Features labeled using fraud analysts’ case reviews
+Train/test split (70/30) to measure performance
+ Preprocessing: Handled class imbalance, feature scaling, encoding
+
+Model Results and Evaluation
+Metric Focus: Precision Recall and False Positive Rate 
+(details in other page)
+Interpretation (non-technical):
+The model detects significantly more fraud cases while reducing false alarms — meaning fewer legitimate users wrongly flagged.
+
+Key Findings (for Business leaders)
+1️⃣ Fraud detection is now faster and more accurate.
+Real-time scoring enables immediate escalation or auto-blocking
+2️⃣ Automation reduces analyst workload.
+Fraud team can focus on complex cases instead of bulk reviews.
+3️⃣ Shared feature library adds scalability.
+One definition of each feature across the organization → less code duplication and easier model reuse.
+
+Actionable Insights
+For Fraud Operations:
+Use fraud score thresholds to trigger automatic freezes or reviews.
+Integrate model results with Slack alerts for team prioritization.
+For Product & Tech:
+Continue parallelization and cache optimization.
+Periodically retrain the model (6–12 months) using recent behavior data.
+
+Next Steps
+For Fraud Operations:
+Use fraud score thresholds to trigger automatic freezes or reviews.
+Integrate model results with Slack alerts for team prioritization.
+For Product & Tech:
+Continue parallelization and cache optimization.
+Periodically retrain the model (6–12 months) using recent behavior data.
+
+Conclusion
+Summary:
+ The new Fraud Score model and API redesign deliver faster fraud detection, better accuracy, and scalable infrastructure.
+Business Value:
+ Lydia can identify and block fraudulent activity earlier — protecting users and reducing losses — while improving efficiency across teams.
+
+
+
+
+
+
+
+
